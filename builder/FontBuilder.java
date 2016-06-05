@@ -321,7 +321,7 @@ public class FontBuilder {
                     fontData = null;
                     fontWidth = -1;
                     if (widthDefArr.length > 1) {
-                        if (widthDefArr[1].equals("SHIFT") && widthDefArr.length > 2) {
+                        if (widthDefArr[1].equals("SHIFT") && widthDefArr.length > 2 && height == 16) {
                             int yOffset = Integer.parseInt(widthDefArr[2]);
                             fontWidth = oldFontWidth;
                             fontData = new BitSet(fontWidth * height);
