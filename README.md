@@ -13,3 +13,8 @@ a public domain bitmapped Unicode font for blocky graphics.
 ### Compiling
 
 Look into how make.sh works.
+
+### License
+
+* The builder code under builder/ is licensed under the terms of the Apache License, version 2.0.
+* The font itself is put into the public domain - licensed under the terms of CC0 1.0 Universal.
