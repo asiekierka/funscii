@@ -41,7 +41,8 @@ public class HEXWriter implements Writer {
             s += ":";
             byte[] ba = e.data.toByteArray();
             for (int i = 0; i < (e.width * e.height / 8); i++) {
-                byte b = i < ba.length ? ba[i] : 0;
+                int ip = i ^ (e.width == 16 ? 1 : 0);
+                byte b = ip < ba.length ? ba[ip] : 0;
                 String s1 = Integer.toHexString(((int) b) & 0xFF);
                 switch (s1.length()) {
                     case 0:

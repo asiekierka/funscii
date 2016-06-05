@@ -132,10 +132,17 @@ public class FontBuilder {
             } else {
                 if (line.startsWith("IFDEF")) {
                     String[] defArgs = line.split(" ", 3);
-                    if (defArgs.length < 3 || !args.contains(defArgs[1].toLowerCase())) {
+                    if (defArgs.length < 3) {
                         continue;
                     } else {
-                        line = defArgs[2];
+                        if (!args.contains(defArgs[1].toLowerCase())) {
+                            if (defArgs[2].startsWith("U+")) {
+                                drawingFont = false;
+                            }
+                            continue;
+                        } else {
+                            line = defArgs[2];
+                        }
                     }
                 }
             }
