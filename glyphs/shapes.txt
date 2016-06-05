@@ -1,0 +1,1448 @@
+TODO incorporate geometric shapes & misc symbols+arrows blocks completely
+
+================= SQUARES, RECTANGLES AND SMALLEST DOTS ======================
+
+Solid squares:
+
+	1x1	sabine
+	2x1	pc		00B7
+	2x2-1up	topaz		22C5	many lack.
+	2x2 	pc/ams/sharp	2B1D	"black very small square". many lack.
+	3x3			25AA	lucida console lacks.
+	4x4	pc/sharp	25FE	courier new & lucida console lack.
+	5x5			25FC	courier new & lucida console lack.
+	6x6	ams/sharp	25A0
+	(7x7)			2B1B	many lack. 16x16 in unifont.
+	8x8	universal	2588
+
+	we also have: 2BC0 ("black square centred")
+	-- pointtina nimenomaan tuo "centred" tuolla alueella
+
+Corresponding hollow squares:
+	3x3	25AB <- 25AA	no examples
+	4x4	25FD <- 25FE	no examples
+	5x5	25FB <- 25FC	no examples
+	6x6	25A1 <- 25A0	cpc/amiga (2x4 surrounded by 2x1 line)
+	(7x7)	2B1C <- 2B1B
+
+1x1 candidates:
+	0387	· (greek. nope. in fonts, same size as middle dot)
+	05BC	(hebrew)
+	16EB	᛫ (runic) - maybe closest to 1x1? but see ultima
+	FF65	･ (halfwidth katakana middle dot is 2x2 in MSX)
+
+U+XTND	SINGLE MIDDLE PIXEL
+........	Maps to the 1/64 fill pattern of Sabine.
+........	Sabine separates six different 1x1 dot characters
+........	but lacks a real middle dot. We have therefore realigned
+...#....	the pixel to the middle dot position.
+........	1/64 fill pattern is also found in MacPaint.
+........
+........
+........
+
+8x16
+........
+........
+........
+........
+........
+........
+........
+...#....
+........
+........
+........
+........
+........
+........
+........
+........
+
+U+00B7	MIDDOT (&middot;)
+8x8
+........	PC, recentered at horizontal line height.
+........ 
+........ 
+...##... 
+........ 
+........ 
+........ 
+........ 
+
+8x16
+........
+........
+........
+........
+........
+........
+........
+...##...
+........
+........
+........
+........
+........
+........
+........
+........
+
+U+22C5	SDOT (&sdot;)
+8x8
+........	This Unicode position is problematic. Many fonts lack or fail.
+........	We've therefore dedicated it for the Topaz middot.
+...##...
+...##...
+........
+........
+........
+........
+
+U+2B1D	
+8x8
+........	PC / Amstrad CPC / Sharp MZ.
+........ 	Sharp also has an inverse variant.
+........ 	The Topaz middot is similar but 1 pixel higher.
+...##... 
+...##... 
+........ 
+........ 
+........ 
+
+U+25AA	BLACK SMALL SQUARE
+8x8
+........	3x3 because between U+2B1D and U+25FE.
+........	Can't find in historical systems.
+..###...
+..###... 
+..###... 
+........ 
+........ 
+........ 
+
+U+25AB	WHITE SMALL SQUARE
+8x8
+........
+........
+..###...
+..#.#... 
+..###... 
+........ 
+........ 
+........ 
+
+U+25FE	BLACK MEDIUM SMALL SQUARE
+8x8
+........	PC / Sharp MZ.
+........ 
+..####.. 
+..####.. 
+..####.. 
+..####.. 
+........ 
+........ 
+
+U+25FD	WHITE MEDIUM SMALL SQUARE
+8x8
+........
+........ 
+..####.. 
+..#..#.. 
+..#..#.. 
+..####.. 
+........ 
+........ 
+
+U+25FC BLACK MEDIUM SQUARE
+8x8
+........	5x5 because between U+25FE and U+25A0.
+.#####.. 	Can't find in historical systems.
+.#####.. 
+.#####.. 
+.#####.. 
+.#####.. 
+........ 
+........ 
+
+U+25FB	WHITE MEDIUM SQUARE
+8x8
+........
+.#####..
+.##.##.. 
+.##.##.. 
+.##.##.. 
+.#####.. 
+........ 
+........ 
+
+U+25A0	BLACK SQUARE
+8x8
+........	Amstrad CPC / Sharp MZ.
+.######. 
+.######. 
+.######. 
+.######. 
+.######. 
+.######. 
+........ 
+
+U+25A1	WHITE SQUARE
+8x8
+........	Amiga / Amstrad CPC.
+.######. 
+.##..##. 
+.##..##. 
+.##..##. 
+.##..##. 
+.######. 
+........ 
+
+U+25A2	WHITE SQUARE WITH ROUNDED CORNERS
+8x8
+.#####..
+##...##. 
+##...##. 
+##...##. 
+##...##. 
+##...##. 
+.#####.. 
+........ 
+
+U+25A3	WHITE SQUARE CONTAINING BLACK SMALL SQUARE
+8x8
+#######.
+#.....#. 
+#.###.#. 
+#.###.#. 
+#.###.#. 
+#.....#. 
+#######. 
+........ 
+
+U+25F0	WHITE SQUARE WITH UPPER RIGHT QUARDRANT
+8x8
+######## 	Amstrad CPC.
+##.##.## 
+##.##.## 
+##.##.## 
+#####.## 
+##....## 
+##....## 
+######## 
+
+U+25F1
+8x8
+######## 14560
+##....## 14561
+##....## 14562
+##....## 14563
+#####.## 14564
+##.##.## 14565
+##.##.## 14566
+######## 14567
+
+U+25F2
+8x8
+######## 14560
+##....## 14561
+##....## 14562
+##....## 14563
+##.##### 14564
+##.##.## 14565
+##.##.## 14566
+######## 14567
+
+U+25F3
+8x8
+######## 14560
+##.##.## 14561
+##.##.## 14562
+##.##.## 14563
+##.##### 14564
+##....## 14565
+##....## 14566
+######## 14567
+
+U+25E7
+8x8
+########
+####..##
+####..##
+####..##
+####..##
+####..##
+####..##
+########
+
+U+25E8
+8x8
+########
+##..####
+##..####
+##..####
+##..####
+##..####
+##..####
+########
+
+U+25E9
+8x8
+########
+########
+########
+#####.##
+####..##
+###...##
+##....##
+########
+
+U+25EA
+8x8
+########
+##....##
+##...###
+##..####
+##.#####
+########
+########
+########
+
+U+25EB
+8x8
+########
+##.##.##
+##.##.##
+##.##.##
+##.##.##
+##.##.##
+##.##.##
+########
+
+Halves of X-doubled version are required because of potential use in BIG5
+art, but we can use cornerlines for it.
+
+required because of potential use in BIG5 art.
+
+U+XTND	TODO try to find. use box chars?
+8x8
+........	
+..######
+..######
+..######
+..######
+..######
+..######
+........
+
+U+XTND	TODO try to find
+8x8
+........
+######..
+######..
+######..
+######..
+######..
+######..
+........
+
+U+XTND
+8x8
+........ 	Sharp MZ has a shaded version of this.
+.#.#.#.. 
+..#.#.#. 
+.#.#.#.. 
+..#.#.#. 
+.#.#.#.. 
+..#.#.#. 
+........ 
+
+Rectangles and other deformed shapes:
+
+	H-rectangle	25AC & 25AD	6x3 on PC
+	V-rectangle	25AE & 25AF
+
+U+25AC	BLACK RECTANGLE
+8x8
+........	PC. Manifests as lowhalf-shrinked U+25A0.
+........ 
+........ 
+........ 
+.######. 
+.######. 
+.######. 
+........ 
+
+U+25AD	WHITE RECTANGLE
+8x8
+........
+........ 
+........ 
+........ 
+.######. 
+.##..##. 
+.######. 
+........ 
+
+U+25AE	TODO check metrics in various fonts
+8x8
+..####..
+..####.. 
+..####.. 
+..####.. 
+..####.. 
+..####.. 
+..####.. 
+........ 
+
+U+25AF	follow 25AE
+..####..
+..#..#.. 
+..#..#.. 
+..#..#.. 
+..#..#.. 
+..#..#.. 
+..####.. 
+........ 
+
+U+25B0 BLACK PARALLELOGRAM	TODO check metrix
+8x8
+........
+........ 
+........ 
+........ 
+..###### 
+.######. 
+######.. 
+........ 
+
+U+25B1 WHITE PARALLELOGRAM
+8x8
+........
+........ 
+........ 
+........ 
+..###### 
+.##..##. 
+######.. 
+........ 
+
+=========================== CIRCLES ======================================
+
+Circles (s=solid, h=heavy, t=thin, i=inverted)
+
+	codept	name			shape	where
+
+?	2981	z notation spot		3x3	(unifont, dblwdt there)
+
+	2022	bullet			4x4s 	pc
+	25E6	white bullet		4x4t	sharp
+	25D8	inverse bullet		4x4si	pc
+
+	2218	ring operator		6x4
+
+	26AC	medium small white ccl	5x5
+
+	26AB	medium black circle	6x5s	a8
+	26AA	medium white circle	6x5t
+	'o'				6x5
+
+	25CF	black circle		6x6s	c64, pet
+	25CB	white circle 		6x6(t)	pc, sharp, pet
+	2B58	heavy circle		6x6h	c64
+	25D9	inverse white circle	6x6i	pc
+
+	'O'				6x7
+
+	N/A				8x6	cpc
+
+	2B24	black large circle	8x8s
+	25EF	large circle		8x8t	sharp
+	2B55	heavy large circle	8x8h
+
+	TODO check ring operator U+2218
+
+	Circles smaller than 4x4 are indistinguishable from rectangles etc.
+
+	size orders in various unicode fonts:
+	- dejavu mono   25e6
+			2218 (same radius, thick)
+			25cb/25ef (identical)
+	- lucida cons   25e6 (thin)
+			2218 (thick)
+			26ac (thick)
+			26aa (thick)
+			25ef (nearly full-cell, much larger than earlier)
+	- courier new:  25e6, 25cb
+	- consolas:	25e6 (thin)
+			2218 (thick)
+			26ac (thick)
+			26aa (thick)
+			25cb (rel thin)
+			25ef (rel thin)
+	- monaco:	25e6 (thin)
+			2218 (same radius, thick, dyxp)
+			26ac (thick)
+			26aa (thick)
+			25cb (rel thin)
+			25ef (rel thin)
+	- unifont:	2218/2e30 (4x4, different y position)
+			25e6/26ac (5x5, different xy position)
+			26aa/25cb (7x7, different xy position)
+			25ef      (8x8)
+
+
+U+2022 BULLET OPERATOR
+8x8
+........ 	PC
+........ 57
+...##... 58
+..####.. 59
+..####.. 60
+...##... 61
+........ 62
+........ 63
+
+U+25E6 WHITE BULLET
+8x8
+........ 	Sharp MZ
+........ 
+...##... 
+..#..#.. 
+..#..#.. 
+...##... 
+........ 
+........
+
+U+25D8 INVERSE BULLET
+8x8
+########	Full-cell-inverted, as in PC.
+########
+###..### 
+##....## 
+##....## 
+###..### 
+######## 
+######## 
+
+
+U+25D9 INVERSE WHITE CIRCLE
+8x8
+########
+##....##
+#..##..#
+#.####.#
+#.####.#
+#..##..#
+##....##
+########
+
+U+25DA	UPPER HALF INVERSE WHITE CIRCLE
+8x8
+########
+##....##
+#..##..#
+#.####.#
+........
+........
+........
+........
+
+U+25DB	LOWER HALF INVERSE WHITE CIRCLE
+8x8
+........
+........
+........
+........
+#.####.#
+#..##..#
+##....##
+########
+
+U+2218 RING OPERATOR
+8x8
+........
+........
+..####..
+.##..##.
+.##..##.
+..####..
+........
+........
+
+U+26AC MEDIUM SMALL WHITE CIRCLE
+8x8
+........
+..###...
+.#####..
+.##.##..
+.#####..
+..###...
+........
+........
+
+U+26AB MEDIUM BLACK CIRCLE
+8x8
+........	Atari 400/800
+........ 
+..####.. 
+.######. 
+.######. 
+.######. 
+..####.. 
+........ 
+
+U+26AA MEDIUM WHITE CIRCLE
+8x8
+........
+........ 
+..####.. 
+.#....#. 
+.#....#. 
+.#....#. 
+..####.. 
+........ 
+
+U+25CF BLACK CIRCLE
+8x8
+........	C-64 / MSX. 6x6 like the corresponding white circle and heavy circle.
+..####.. 
+.######. 
+.######. 
+.######. 
+.######. 
+..####.. 
+........ 
+
+U+25CB WHITE CIRCLE
+8x8
+........ 	PC. (Sharp MZ variant is thinner)
+..####.. 
+.##..##. 
+.#....#. 
+.#....#. 
+.##..##. 
+..####.. 
+........ 
+
+U+2B58 HEAVY CIRCLE
+8x8
+........	C-64.
+..####.. 
+.######. 
+.##..##. 
+.##..##. 
+.######. 
+..####.. 
+........ 
+
+U+IGNORE
+8x8
+........ 	Amstrad CPC.
+..####.. 
+.######. 
+######## 
+######## 
+.######. 
+..####.. 
+........ 
+
+U+IGNORE
+8x8
+........	Amstrad CPC.
+..####..
+.##..##.
+##....##
+##....##
+.##..##.
+..####..
+........
+
+U+2B24	LARGE BLACK CIRCLE
+..####..	Mattel Aquarius
+.######.
+########
+########
+########
+########
+.######.
+..####..
+
+U+2B55	HEAVY LARGE CIRCLE
+8x8
+..####..
+.######. 
+###..### 
+##....## 
+##....## 
+###..### 
+.######. 
+..####.. 
+
+U+25EF  LARGE CIRCLE
+8x8
+..####..
+.##..##. 
+##....## 
+##....## 
+##....## 
+##....## 
+.##..##. 
+..####.. 
+
+U+25DC	UPPER LEFT QUADRANT CIRCULAR ARC
+8x8
+..###...
+.##..... 
+##...... 
+##...... 
+........ 
+........ 
+........ 
+........ 
+
+U+25DD
+8x8
+...###..
+.....##. 
+......## 
+......## 
+........ 
+........ 
+........ 
+........ 
+
+U+25DE
+8x8
+........
+........ 
+........ 
+........ 
+......## 
+......## 
+.....##. 
+...###.. 
+
+U+25DF
+8x8
+........
+........ 
+........ 
+........ 
+##...... 
+##......
+.##..... 
+..###... 
+
+U+25E0
+8x8
+..####..
+.##..##. 
+##....## 
+##....## 
+........ 
+........ 
+........ 
+........ 
+
+U+25E1
+8x8
+........
+........ 
+........ 
+........ 
+##....## 
+##....##
+.##..##. 
+..####.. 
+
+U+25D6	LEFT HALF BLACK CIRCLE
+8x8
+........	Left half of double-size 25CF. Follows 8x16.
+.....### 	Mattel Aquarius character is narrower (4 pixels).
+...##### 
+..###### 
+..###### 
+...##### 
+.....### 
+........ 
+
+8x16
+........ 	Left half of double-size 25CF.
+......## 
+....#### 
+...##### 
+...##### 
+..###### 
+..###### 
+..###### 
+..###### 
+..###### 
+...##### 
+...##### 
+....#### 
+......## 
+........ 
+........ 
+
+U+25D7	RIGHT HALF BLACK CIRCLE
+8x8
+........	Right half of double-size 25CF. Follows 8x16.
+###.....	Mattel Aquarius character is narrower (4 pixels)
+#####...
+######..
+######..
+#####...
+###.....
+........
+
+8x16
+........	Right half of double-size 25CF.
+##......
+####....
+#####...
+#####...
+######..
+######..
+######..
+######..
+######..
+#####...
+#####...
+####....
+##......
+........
+........
+
+Circle is universal enough for Y-doubling as well.
+Mattel Aquarius has these charcters.
+However, we remain symmetric with the right/left halves.
+
+U+XTND
+8x8
+........
+........
+...##...
+..####..
+..####..
+.######.
+.######.
+.######.
+
+U+XTND
+8x8
+.######.
+.######.
+.######.
+..####..
+..####..
+...##...
+........
+........
+
+XY-doubled circle is also useful for rounded corners.
+
+U+CIRCLEUL
+8x8
+.....###
+...#####
+..######
+.#######
+.#######
+########
+########
+########
+
+U+CIRCLEUR FLIPX CIRCLEUL
+U+CIRCLELR FLIPY CIRCLEUR
+U+CIRCLELL FLIPX CIRCLELR
+
+U+XTND = CIRCLEUL
+U+XTND = CIRCLEUR
+U+XTND = CIRCLELR
+U+XTND = CIRCLELL
+
+U+25C9	FISHEYE
+8x8
+..####..	Amstrad CPC
+.##..##. 
+##....## 
+##.##.## 
+##.##.## 
+##....## 
+.##..##.
+..####.. 
+
+U+25CE	BULLSEYE	todo check code
+8x8
+..###...
+.#...#..
+#..#..#.
+#.#.#.#.
+#..#..#.
+.#...#..
+..###...
+........
+
+U+25CC	DOTTED CIRCLE
+8x8
+...#....
+.#...#..
+........
+#.....#.
+........
+.#...#..
+...#....
+........
+
+U+25CD	CIRCLE WITH VERTICAL FILL
+8x8
+........ 
+..###... 
+.##.##.. 
+#.#.#.#. 
+#.#.#.#. 
+.##.##.. 
+..###... 
+........ 
+
+TODO shrink these?
+
+U+25F7	WHITE CIRCLE WITH UPPER RIGHT QUADRANT
+8x8
+..####..	Amstrad CPC.
+.######. 
+##.##.## 
+##.##.## 
+##.##### 
+##....## 
+.##..##. 
+..####.. 
+
+U+25F6
+FUSION ; cpc
+..####.. 14480
+.##..##. 14481
+##....## 14482
+##.##### 14483
+##.##.## 14484
+##.##.## 14485
+.######. 14486
+..####.. 14487
+
+U+25F5
+FUSION ; cpc
+..####.. 14488
+.##..##. 14489
+##....## 14490
+#####.## 14491
+##.##.## 14492
+##.##.## 14493
+.######. 14494
+..####.. 14495
+
+U+25F4
+FUSION ; cpc
+..####.. 14496
+.######. 14497
+##.##.## 14498
+##.##.## 14499
+#####.## 14500
+##....## 14501
+.##..##. 14502
+..####.. 14503
+
+U+25D0
+8x8
+..####..
+.###.##. 
+####..## 
+####..## 
+####..## 
+####..## 
+.###.##. 
+..####.. 
+
+U+25D1
+8x8
+..####..
+.##.###. 
+##..#### 
+##..#### 
+##..#### 
+##..#### 
+.##.###. 
+..####.. 
+
+U+25D2
+8x8
+..####..
+.##..##. 
+##....## 
+##....## 
+######## 
+######## 
+.######. 
+..####.. 
+
+U+25D3
+8x8
+..####..
+.######. 
+######## 
+######## 
+##....## 
+##....## 
+.##..##. 
+..####.. 
+
+U+25D4
+8x8
+..####..
+.##.###. 
+##..#### 
+##..#### 
+##....## 
+##....## 
+.##..##. 
+..####.. 
+
+U+25D5
+8x8
+..####..
+.##.###. 
+##..#### 
+##..#### 
+######## 
+######## 
+.######. 
+..####.. 
+
+U+IGNORE
+16x16
+................	MSX 13x13 (8x8 version 6x6). NEC 13x14.
+.....#####......	MSX chosen because it is closer to doubled 6x6.
+...#########.... 	Corresponding NEC character is 13x14 (-> 6x7)
+..###########... 
+..###########... 
+.#############.. 
+.#############.. 
+.#############.. 
+.#############.. 
+.#############.. 
+..###########... 
+..###########... 
+...#########.... 
+.....#####...... 
+................ 
+................ 
+
+16x16
+................  MSX 13x13 (8x8 version 6x6).
+.....#####......  Chosen because closer to doubled 6x6.
+...###...###....  NEC character is 13x14 (-> 6x7)
+..##.......##...  
+..##.......##...
+.##.........##..
+.##.........##..
+.##.........##..
+.##.........##..
+.##.........##.. 
+..##.......##... 
+..##.......##... 
+...###...###.... 
+.....#####...... 
+................ 
+................	TODO split this
+
+====================== DIAMONDS & LOZENGES ==============================
+
+U+25C6
+8x8
+...##...	Amstrad CPC / Mattel Aquarius.
+..####.. 	As there are separate codepoints for card suits,
+.######. 	we have decided to have the geometric diamonds full-block.
+######## 	The character is 15x15 in NEC PC so full-block should be OK.
+######## 
+.######. 
+..####.. 
+...##... 
+
+U+25C7
+8x8
+...##...	Amstrad CPC. Actually belongs to the diagonal-line set.
+..####.. 	The character is 15x15 in NEC PC.
+.##..##. 	Atari ST has the same shape inverted.
+##....##
+##....## 
+.##..##. 
+..####.. 
+...##... 
+
+U+25C8
+8x8
+...##...
+..#..#..
+.#.##.#.
+#.####.#
+#.####.#
+.#.##.#.
+..#..#.. 
+...##... 
+
+U+IGNORE
+8x8
+...#....
+..#.#...
+.#.#.#..
+#.###.#.
+.#.#.#..
+..#.#...
+...#....
+........
+
+U+25CA	LOZENGE (more oblong than diamond)
+8x8
+...#....
+..###...
+.##.##..
+##...##.
+##...##. 
+.##.##.. 
+..###... 
+...#.... 
+
+U+XTND	???	TODO use as fill pattern
+8x8
+..#..#.. 	Another Sharp MZ pattern. Pattern size 8x8.
+.#....#. 	TODO Check whether more usable as pattern or diamond.
+#......# 
+........ 
+........ 
+#......# 
+.#....#. 
+..#..#.. 
+
+=========================== TRIANGLES ================================
+
+Diagonal triangles and other border-aligned triangles are handled in
+divisions.txt.
+
+=== FULL-CELL TRIANGLES ===
+
+PC/Amstrad triangles are not full-cell. However, we implement these in full
+cell because 1) these character double as arrowheads and 2) they are used as
+full-cell graphics characters in Videotex art.
+
+
+=== THIN TRIANGLES (POINTERS) ===
+
+U+25C4
+8x8
+........
+.....###
+..###### 
+######## 
+..###### 
+.....### 
+........ 
+........ 
+
+8x16
+........
+........
+........
+........
+......##
+....####
+..######
+########
+..######
+....####
+......##
+........
+........
+........
+........
+........
+
+U+25BA FLIPX 25C4
+
+U+25C5
+8x8
+........
+....####
+..###.## 
+###...## 
+..###.## 
+....#### 
+........ 
+........ 
+
+8x16
+........
+........
+........
+........
+......##
+....####
+..###.##
+###...##
+..###.##
+....####
+......##
+........
+........
+........
+........
+........
+
+U+25BB FLIPX 25C5
+
+U+25EC
+8x8
+...##...
+...##...
+..#..#..
+.#....#.
+.#.##.#.
+#..##..#
+#......#
+########
+
+U+25ED
+8x8
+...##...
+...##...
+..####..
+.###.##.
+.###.##.
+####..##
+####..##
+########
+
+U+25EE
+8x8
+...##...
+...##...
+..####..
+.##.###.
+.##.###.
+##..####
+##..####
+########
+
+=== SMALL TRIANGLES ===
+
+U+25B4
+8x8
+........
+...#....
+...#....
+..###...
+..###...
+.#####..
+.#####..
+........
+
+U+25BE FLIPY 25B4
+
+U+25C2
+8x8
+........
+.....##.
+...####.
+.######.
+...####.
+.....##.
+........
+........
+
+8x16
+........
+........
+........
+........
+.....#..
+....##..
+...###..
+..####..
+.#####..
+..####..
+...###..
+....##..
+.....#..
+........
+........
+........
+
+U+25B8 FLIPX 25C2
+
+U+25B5
+8x8
+........
+...#....
+..#.#...
+.#...#..
+#.....#.
+#.....#.
+#######.
+........
+
+8x16
+........
+........
+...#....
+...#....
+..###...
+..#.#...
+..#.#...
+.##.##..
+.#...#..
+.#...#..
+##...##.
+#.....#.
+#.....#.
+#######.
+........
+........
+
+U+25BF FLIPY 25B5
+
+U+25C3
+8x8
+........
+.....##.
+...##.#.
+.##...#.
+...##.#.
+.....##.
+........
+........
+
+8x16
+........
+........
+........
+........
+.....#..
+....##..
+...#.#..
+..#..#..
+.#...#..
+..#..#..
+...#.#..
+....##..
+.....#..
+........
+........
+........
+
+U+25B9 FLIPX 25C3
+
+Sharp MZ has these double triangles which can be found in the "miscellaneous
+technical" block of Unicode.
+
+U+23EB	dupe codepoint?
+8x8
+...#.... 	Sharp MZ, realigned
+..###... 
+.#####.. 
+........ 
+...#.... 
+..###... 
+.#####.. 
+........
+
+U+23EA
+8x8
+........ 	Sharp MZ, realigned
+........ 
+..#...#.
+.##..##.
+###.###. 
+.##..##. 
+..#...#. 
+........ 
+
+U+23EC
+8x8
+.#####..	Sharp MZ, realigned 
+..###... 
+...#.... 
+........ 
+.#####.. 
+..###... 
+...#.... 
+........
+
+U+23E9
+8x8
+........ 	Sharp MZ, realigned
+........ 
+#...#... 
+##..##.. 
+###.###. 
+##..##.. 
+#...#... 
+........ 
+
+special triangles: dotted, partfilled
+
+=========================== PENTAGONS ====================================
+
+=========================== OCTAGONS =====================================
+
+=========================== STARS ====================================
+
+U+2605		TODO: VERIFY
+8x8
+........
+...#....
+..###...
+#######.
+..###...
+.##.##..
+#.....#.
+........
+
+16x16
+................ 	MSX 13x12, NEC 15x14.
+.......#........ 	Maybe 
+......###....... 
+......###....... 
+.....#####...... 
+..###########... 
+.#############.. 
+..###########... 
+....#######..... 
+....#######..... 
+...#########.... 
+..####...####... 
+..##.......##... 
+................
+................ 
+................ 
+
+Sharp:
+
+U+2734	EIGHT POINTED BLACK STAR	(vai 2733 lähempänä?)
+8x8
+#..#..#. 
+.#.#.#.. 	->
+..###... 
+#######. 
+..###... 
+.#.#.#.. 
+#..#..#. 
+........ 
+
+U+IGNORE
+........ 	mz, todo find
+#..#..#. 
+.#.#.#.. 
+..###... 
+###.###. 
+..###... 
+.#.#.#.. 
+#..#..#. 
