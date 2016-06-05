@@ -102,3 +102,6 @@ INCLUDE glyphs/japanese/shinonome-16.txt
 	- Japanese hiragana, katakana and kanji (16x16)
 
 IFDEF dotted-braille INCLUDE glyphs/alt/dotted-braille.txt
+
+INCLUDE glyphs/similar.txt
+	- Characters from above sets deemed "similar enough".

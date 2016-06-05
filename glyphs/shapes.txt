@@ -41,23 +41,7 @@ U+XTND	SINGLE MIDDLE PIXEL
 ........
 ........
 
-8x16
-........
-........
-........
-........
-........
-........
-........
-...#....
-........
-........
-........
-........
-........
-........
-........
-........
+8x16 SHIFT 4
 
 U+00B7	MIDDOT (&middot;)
 8x8
@@ -70,23 +54,7 @@ U+00B7	MIDDOT (&middot;)
 ........ 
 ........ 
 
-8x16
-........
-........
-........
-........
-........
-........
-........
-...##...
-........
-........
-........
-........
-........
-........
-........
-........
+8x16 SHIFT 4
 
 U+22C5	SDOT (&sdot;)
 8x8
@@ -121,6 +89,8 @@ U+25AA	BLACK SMALL SQUARE
 ........ 
 ........ 
 
+8x16 SHIFT 4
+
 U+25AB	WHITE SMALL SQUARE
 8x8
 ........
@@ -131,6 +101,8 @@ U+25AB	WHITE SMALL SQUARE
 ........ 
 ........ 
 ........ 
+
+8x16 SHIFT 4
 
 U+25FE	BLACK MEDIUM SMALL SQUARE
 8x8
@@ -143,6 +115,8 @@ U+25FE	BLACK MEDIUM SMALL SQUARE
 ........ 
 ........ 
 
+8x16 SHIFT 4
+
 U+25FD	WHITE MEDIUM SMALL SQUARE
 8x8
 ........
@@ -153,6 +127,8 @@ U+25FD	WHITE MEDIUM SMALL SQUARE
 ..####.. 
 ........ 
 ........ 
+
+8x16 SHIFT 4
 
 U+25FC BLACK MEDIUM SQUARE
 8x8
@@ -165,6 +141,8 @@ U+25FC BLACK MEDIUM SQUARE
 ........ 
 ........ 
 
+8x16 SHIFT 4
+
 U+25FB	WHITE MEDIUM SQUARE
 8x8
 ........
@@ -175,6 +153,8 @@ U+25FB	WHITE MEDIUM SQUARE
 .#####.. 
 ........ 
 ........ 
+
+8x16 SHIFT 4
 
 U+25A0	BLACK SQUARE
 8x8
@@ -187,6 +167,8 @@ U+25A0	BLACK SQUARE
 .######. 
 ........ 
 
+8x16 SHIFT 4
+
 U+25A1	WHITE SQUARE
 8x8
 ........	Amiga / Amstrad CPC.
@@ -197,6 +179,8 @@ U+25A1	WHITE SQUARE
 .##..##. 
 .######. 
 ........ 
+
+8x16 SHIFT 4
 
 U+25A2	WHITE SQUARE WITH ROUNDED CORNERS
 8x8
@@ -209,6 +193,8 @@ U+25A2	WHITE SQUARE WITH ROUNDED CORNERS
 .#####.. 
 ........ 
 
+8x16 SHIFT 4
+
 U+25A3	WHITE SQUARE CONTAINING BLACK SMALL SQUARE
 8x8
 #######.
@@ -219,6 +205,8 @@ U+25A3	WHITE SQUARE CONTAINING BLACK SMALL SQUARE
 #.....#. 
 #######. 
 ........ 
+
+8x16 SHIFT 4
 
 U+25F0	WHITE SQUARE WITH UPPER RIGHT QUARDRANT
 8x8
@@ -231,6 +219,8 @@ U+25F0	WHITE SQUARE WITH UPPER RIGHT QUARDRANT
 ##....## 
 ######## 
 
+8x16 SHIFT 4
+
 U+25F1
 8x8
 ######## 14560
@@ -241,6 +231,8 @@ U+25F1
 ##.##.## 14565
 ##.##.## 14566
 ######## 14567
+
+8x16 SHIFT 4
 
 U+25F2
 8x8
@@ -253,6 +245,8 @@ U+25F2
 ##.##.## 14566
 ######## 14567
 
+8x16 SHIFT 4
+
 U+25F3
 8x8
 ######## 14560
@@ -263,6 +257,8 @@ U+25F3
 ##....## 14565
 ##....## 14566
 ######## 14567
+
+8x16 SHIFT 4
 
 U+25E7
 8x8
@@ -275,6 +271,8 @@ U+25E7
 ####..##
 ########
 
+8x16 SHIFT 4
+
 U+25E8
 8x8
 ########
@@ -285,6 +283,8 @@ U+25E8
 ##..####
 ##..####
 ########
+
+8x16 SHIFT 4
 
 U+25E9
 8x8
@@ -297,6 +297,8 @@ U+25E9
 ##....##
 ########
 
+8x16 SHIFT 4
+
 U+25EA
 8x8
 ########
@@ -308,6 +310,8 @@ U+25EA
 ########
 ########
 
+8x16 SHIFT 4
+
 U+25EB
 8x8
 ########
@@ -318,6 +322,8 @@ U+25EB
 ##.##.##
 ##.##.##
 ########
+
+8x16 SHIFT 4
 
 Halves of X-doubled version are required because of potential use in BIG5
 art, but we can use cornerlines for it.
@@ -373,6 +379,24 @@ U+25AC	BLACK RECTANGLE
 .######. 
 ........ 
 
+8x16
+........
+........ 
+........ 
+........ 
+........
+........ 
+........ 
+........ 
+........ 
+.######. 
+.######. 
+.######. 
+........ 
+........ 
+........ 
+........ 
+
 U+25AD	WHITE RECTANGLE
 8x8
 ........
@@ -382,6 +406,24 @@ U+25AD	WHITE RECTANGLE
 .######. 
 .##..##. 
 .######. 
+........ 
+
+8x16
+........
+........ 
+........ 
+........ 
+........
+........ 
+........ 
+........ 
+........ 
+.######. 
+.##..##. 
+.######. 
+........ 
+........ 
+........ 
 ........ 
 
 U+25AE	TODO check metrics in various fonts
@@ -503,6 +545,8 @@ U+2022 BULLET OPERATOR
 ........ 62
 ........ 63
 
+8x16 SHIFT 4
+
 U+25E6 WHITE BULLET
 8x8
 ........ 	Sharp MZ
@@ -513,6 +557,8 @@ U+25E6 WHITE BULLET
 ...##... 
 ........ 
 ........
+
+8x16 SHIFT 4
 
 U+25D8 INVERSE BULLET
 8x8
@@ -525,6 +571,23 @@ U+25D8 INVERSE BULLET
 ######## 
 ######## 
 
+8x16
+########
+########
+########
+########
+########	Full-cell-inverted, as in PC.
+########
+###..### 
+##....## 
+##....## 
+###..### 
+######## 
+######## 
+########
+########
+########
+########
 
 U+25D9 INVERSE WHITE CIRCLE
 8x8
@@ -537,12 +600,48 @@ U+25D9 INVERSE WHITE CIRCLE
 ##....##
 ########
 
+8x16
+########
+########
+########
+########
+########
+##....##
+#..##..#
+#.####.#
+#.####.#
+#..##..#
+##....##
+########
+########
+########
+########
+########
+
 U+25DA	UPPER HALF INVERSE WHITE CIRCLE
 8x8
 ########
 ##....##
 #..##..#
 #.####.#
+........
+........
+........
+........
+
+8x16
+########
+########
+########
+########
+########
+##....##
+#..##..#
+#.####.#
+........
+........
+........
+........
 ........
 ........
 ........
@@ -559,6 +658,24 @@ U+25DB	LOWER HALF INVERSE WHITE CIRCLE
 ##....##
 ########
 
+8x16
+........
+........
+........
+........
+........
+........
+........
+........
+#.####.#
+#..##..#
+##....##
+########
+########
+########
+########
+########
+
 U+2218 RING OPERATOR
 8x8
 ........
@@ -569,6 +686,8 @@ U+2218 RING OPERATOR
 ..####..
 ........
 ........
+
+8x16 SHIFT 4
 
 U+26AC MEDIUM SMALL WHITE CIRCLE
 8x8
@@ -581,6 +700,8 @@ U+26AC MEDIUM SMALL WHITE CIRCLE
 ........
 ........
 
+8x16 SHIFT 4
+
 U+26AB MEDIUM BLACK CIRCLE
 8x8
 ........	Atari 400/800
@@ -591,6 +712,8 @@ U+26AB MEDIUM BLACK CIRCLE
 .######. 
 ..####.. 
 ........ 
+
+8x16 SHIFT 4
 
 U+26AA MEDIUM WHITE CIRCLE
 8x8
@@ -603,6 +726,8 @@ U+26AA MEDIUM WHITE CIRCLE
 ..####.. 
 ........ 
 
+8x16 SHIFT 4
+
 U+25CF BLACK CIRCLE
 8x8
 ........	C-64 / MSX. 6x6 like the corresponding white circle and heavy circle.
@@ -613,6 +738,8 @@ U+25CF BLACK CIRCLE
 .######. 
 ..####.. 
 ........ 
+
+8x16 SHIFT 4
 
 U+25CB WHITE CIRCLE
 8x8
@@ -625,6 +752,8 @@ U+25CB WHITE CIRCLE
 ..####.. 
 ........ 
 
+8x16 SHIFT 4
+
 U+2B58 HEAVY CIRCLE
 8x8
 ........	C-64.
@@ -635,6 +764,8 @@ U+2B58 HEAVY CIRCLE
 .######. 
 ..####.. 
 ........ 
+
+8x16 SHIFT 4
 
 U+IGNORE
 8x8
@@ -668,6 +799,8 @@ U+2B24	LARGE BLACK CIRCLE
 .######.
 ..####..
 
+8x16 SHIFT 4
+
 U+2B55	HEAVY LARGE CIRCLE
 8x8
 ..####..
@@ -679,6 +812,8 @@ U+2B55	HEAVY LARGE CIRCLE
 .######. 
 ..####.. 
 
+8x16 SHIFT 4
+
 U+25EF  LARGE CIRCLE
 8x8
 ..####..
@@ -689,6 +824,8 @@ U+25EF  LARGE CIRCLE
 ##....## 
 .##..##. 
 ..####.. 
+
+8x16 SHIFT 4
 
 U+25DC	UPPER LEFT QUADRANT CIRCULAR ARC
 8x8
@@ -873,6 +1010,8 @@ U+25C9	FISHEYE
 .##..##.
 ..####.. 
 
+8x16 SHIFT 4
+
 U+25CE	BULLSEYE	todo check code
 8x8
 ..###...
@@ -883,6 +1022,8 @@ U+25CE	BULLSEYE	todo check code
 .#...#..
 ..###...
 ........
+
+8x16 SHIFT 4
 
 U+25CC	DOTTED CIRCLE
 8x8
@@ -895,6 +1036,8 @@ U+25CC	DOTTED CIRCLE
 ...#....
 ........
 
+8x16 SHIFT 4
+
 U+25CD	CIRCLE WITH VERTICAL FILL
 8x8
 ........ 
@@ -905,6 +1048,8 @@ U+25CD	CIRCLE WITH VERTICAL FILL
 .##.##.. 
 ..###... 
 ........ 
+
+8x16 SHIFT 4
 
 TODO shrink these?
 
@@ -919,6 +1064,8 @@ U+25F7	WHITE CIRCLE WITH UPPER RIGHT QUADRANT
 .##..##. 
 ..####.. 
 
+8x16 SHIFT 4
+
 U+25F6
 FUSION ; cpc
 ..####.. 14480
@@ -929,6 +1076,8 @@ FUSION ; cpc
 ##.##.## 14485
 .######. 14486
 ..####.. 14487
+
+8x16 SHIFT 4
 
 U+25F5
 FUSION ; cpc
@@ -941,6 +1090,8 @@ FUSION ; cpc
 .######. 14494
 ..####.. 14495
 
+8x16 SHIFT 4
+
 U+25F4
 FUSION ; cpc
 ..####.. 14496
@@ -951,6 +1102,8 @@ FUSION ; cpc
 ##....## 14501
 .##..##. 14502
 ..####.. 14503
+
+8x16 SHIFT 4
 
 U+25D0
 8x8
@@ -963,6 +1116,8 @@ U+25D0
 .###.##. 
 ..####.. 
 
+8x16 SHIFT 4
+
 U+25D1
 8x8
 ..####..
@@ -973,6 +1128,8 @@ U+25D1
 ##..#### 
 .##.###. 
 ..####.. 
+
+8x16 SHIFT 4
 
 U+25D2
 8x8
@@ -985,6 +1142,8 @@ U+25D2
 .######. 
 ..####.. 
 
+8x16 SHIFT 4
+
 U+25D3
 8x8
 ..####..
@@ -995,6 +1154,8 @@ U+25D3
 ##....## 
 .##..##. 
 ..####.. 
+
+8x16 SHIFT 4
 
 U+25D4
 8x8
@@ -1007,6 +1168,8 @@ U+25D4
 .##..##. 
 ..####.. 
 
+8x16 SHIFT 4
+
 U+25D5
 8x8
 ..####..
@@ -1017,6 +1180,8 @@ U+25D5
 ######## 
 .######. 
 ..####.. 
+
+8x16 SHIFT 4
 
 U+IGNORE
 16x16
@@ -1418,6 +1583,35 @@ U+2605		TODO: VERIFY
 ....#######..... 
 ....#######..... 
 ...#########.... 
+..####...####... 
+..##.......##... 
+................
+................ 
+................ 
+
+U+2606
+8x8
+........
+...#....
+..###...
+##...##.
+..###...
+.##.##..
+#.....#.
+........
+
+16x16
+................ 	MSX 13x12, NEC 15x14.
+.......#........ 	Maybe 
+......###....... 
+......###....... 
+.....##.##...... 
+..####...####... 
+.##.........##.. 
+..###.....###... 
+....##...##..... 
+....##...##..... 
+...##.###.##.... 
 ..####...####... 
 ..##.......##... 
 ................

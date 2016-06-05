@@ -213,7 +213,6 @@ public class FontBuilder {
                         }
 
                         drawingFont = false;
-                        fontData = null;
                     }
                 }
             }
@@ -314,9 +313,31 @@ public class FontBuilder {
                 } else if (line.startsWith("SET")) {
                     // TODO
                 } else if (line.indexOf("x") > 0 && line.indexOf("x") < 3 && fontKeys.size() > 0) {
+                    String[] widthDefArr = line.substring(2).split("\\s+");
+                    BitSet oldFontData = fontData;
+                    int oldFontWidth = fontWidth;
                     drawingFont = true;
-                    fontWidth = -1;
                     fontLines = new ArrayList<>();
+                    fontData = null;
+                    fontWidth = -1;
+                    if (widthDefArr.length > 1) {
+                        if (widthDefArr[1].equals("SHIFT") && widthDefArr.length > 2) {
+                            int yOffset = Integer.parseInt(widthDefArr[2]);
+                            fontWidth = oldFontWidth;
+                            fontData = new BitSet(fontWidth * height);
+                            for (int iy = 0; iy < 8; iy++) { // TODO: Make work for non-8x8/8x16 cases
+                                for (int ix = 0; ix < fontWidth; ix++) {
+                                    int pOld = iy * fontWidth * 2 + ix; // * 2 because the old is prescaled
+                                    int pNew = (iy + yOffset) * fontWidth + ix;
+                                    if (pNew >= 0 && pNew < (fontWidth * height)) {
+                                        fontData.set(pNew, oldFontData.get(pOld));
+                                    }
+                                }
+                            }
+                        } else if (widthDefArr[1].equals("DBLW")) {
+                            // TODO
+                        }
+                    }
                 }
             }
         }

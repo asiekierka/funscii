@@ -1127,6 +1127,35 @@ U+FRACD9
 ........
 ........
 
+U+FRACBD10		For completeness only. Really.
+8x8
+........
+.....##. 
+.....##. 
+...###.. 
+.###..#. 
+##.#.#.# 
+##.#.#.# 
+...#..#. 
+
+8x16
+........
+........
+.....##.
+.....##.
+....##..
+....##..
+...##...
+...##.#.
+..##.##.
+..##..#.
+.##.....
+.##...#.
+##...#.#
+##....#.
+........
+........
+
 U+00BC = FRACBAR + FRACU1 + FRACD4
  	PC base, numbers from Amstrad to bring it closer to Amiga.
  	Amstrad shape lacks /. Amiga shape has a very messy 4.
@@ -1135,6 +1164,7 @@ U+00BD = FRACBAR + FRACU1 + FRACD2
 U+00BE = FRACBAR + FRACU3 + FRACD4
 U+2150 = FRACBAR + FRACU1 + FRACD7
 U+2151 = FRACBAR + FRACU1 + FRACD9
+U+2152 = FRACU1 + FRACBD10
 U+2153 = FRACBAR + FRACU1 + FRACD3
 U+2154 = FRACBAR + FRACU2 + FRACD3
 U+2155 = FRACBAR + FRACU1 + FRACD5
