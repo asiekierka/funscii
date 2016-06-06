@@ -39,9 +39,12 @@ public class ImageWriter implements Writer {
         } else {
             caw = 256;
             int maxPos = 0;
-            for (Integer i : builder.getFontDataMap().keySet()) {
-                if (i > maxPos) {
-                    maxPos = i;
+            for (Object o : builder.getFontDataMap().keySet()) {
+                if (o instanceof Integer) {
+                    int i = ((Integer) o).intValue();
+                    if (i > maxPos) {
+                        maxPos = i;
+                    }
                 }
             }
             cah = (int) Math.ceil((maxPos + 1) / 256.0);

@@ -47,24 +47,52 @@ public class FontBuilder {
         }
     }
 
-    private final Map<String, Integer> customGlyphPointers = new HashMap<>();
-    private final Map<String, Entry> fontDataMapString = new HashMap<>();
-    private final Map<Integer, Entry> fontDataMap = new HashMap<>();
-    private final Set<Integer> allowedWidths = new HashSet<>();
+    public static class Pointer {
+        private final boolean increment;
+        private int location;
+
+        public Pointer(int location, boolean increment) {
+            this.increment = increment;
+            this.location = location;
+        }
+
+        public int get() {
+            return location;
+        }
+
+        public void finish() {
+            if (increment) {
+                location++;
+            }
+        }
+    }
+
+    private final Map<String, Pointer> pointerMap;
+    private final Map<Object, Entry> fontDataMap = new HashMap<>();
+    private final Set<Integer> allowedWidths;
     private final int height, maxWidth;
     private final Set<String> args = new HashSet<>();
+    private final FontBuilder parent;
 
-    public FontBuilder(int[] allowedWidths, int height) {
+    private FontBuilder(FontBuilder parent, Set<Integer> allowedWidths, int height, Map<String, Pointer> pointerMap) {
+        this.parent = parent;
         this.height = height;
+        this.allowedWidths = allowedWidths;
         int mWidth = 0;
         for (int i : allowedWidths) {
             if (i > mWidth) mWidth = i;
-            this.allowedWidths.add(i);
         }
         this.maxWidth = mWidth;
-        customGlyphPointers.put("XTND", 0xE100);
-        customGlyphPointers.put("XTND2", 0xE800);
-        customGlyphPointers.put("XTND3", 0xEC00);
+        this.pointerMap = pointerMap;
+    }
+
+    public FontBuilder(Set<Integer> allowedWidths, int height) {
+        this(null, allowedWidths, height, new HashMap<>());
+    }
+
+    public FontBuilder(FontBuilder parent) {
+        this(parent, parent.allowedWidths, parent.height, parent.pointerMap);
+        args.addAll(parent.args);
     }
 
     public void setArgs(String[] args) {
@@ -82,33 +110,56 @@ public class FontBuilder {
         return maxWidth;
     }
 
-    public Map<Integer, Entry> getFontDataMap() {
+    public Map<Object, Entry> getFontDataMap() {
         return Collections.unmodifiableMap(fontDataMap);
     }
 
     private void afterKey(String key) {
-        if (customGlyphPointers.containsKey(key)) {
-            int k = customGlyphPointers.get(key);
-            customGlyphPointers.put(key, k + 1);
-        }
-    }
-
-    private int key(String key) throws NumberFormatException {
-        if (customGlyphPointers.containsKey(key)) {
-            int k = customGlyphPointers.get(key);
-            return k;
-        } else if (key.equals("IGNORE")) {
-            return -1;
-        } else {
-            return Integer.parseInt(key, 16);
+        if (pointerMap.containsKey(key)) {
+            pointerMap.get(key).finish();
         }
     }
 
     private Entry get(String key) {
+        Entry result = null;
         if (key.startsWith("'")) {
-            return fontDataMap.get(key.codePointAt(1));
+            result = fontDataMap.get(key.codePointAt(1));
+        } else if (fontDataMap.containsKey(key)) {
+            result = fontDataMap.get(key);
+        } else if (key.matches("[0-9a-fA-F]+")) {
+            try {
+                result = fontDataMap.get(Integer.parseInt(key, 16));
+            } catch (NumberFormatException e) {
+            }
+        }
+
+        if (result == null && parent != null) {
+            return parent.get(key);
         } else {
-            return fontDataMapString.get(key);
+            return result;
+        }
+    }
+
+    private void putObject(Object key, Entry entry) {
+        if (!key.equals("IGNORE")) {
+            Entry oldEntry = fontDataMap.get(key);
+            if (oldEntry == null || !(!oldEntry.upscaled && entry.upscaled)) {
+                fontDataMap.put(key, entry);
+            }
+        }
+    }
+
+    private void putString(String key, Entry entry) {
+        if (pointerMap.containsKey(key)) {
+            putObject(pointerMap.get(key).get(), entry);
+        } else if (key.matches("[0-9a-fA-F]+")) {
+            try {
+                putObject(Integer.parseInt(key, 16), entry);
+            } catch (NumberFormatException e) {
+                putObject(key, entry);
+            }
+        } else {
+            putObject(key, entry);
         }
     }
 
@@ -130,20 +181,27 @@ public class FontBuilder {
             if (line == null) {
                 line = "";
             } else {
-                if (line.startsWith("IFDEF")) {
+                boolean defMet = true;
+                while (line.startsWith("IFDEF") || line.startsWith("IFNDEF")) {
+                    boolean invert = line.startsWith("IFNDEF");
                     String[] defArgs = line.split(" ", 3);
                     if (defArgs.length < 3) {
-                        continue;
+                        defMet = false;
+                        break;
                     } else {
-                        if (!args.contains(defArgs[1].toLowerCase())) {
+                        boolean contains = args.contains(defArgs[1].toLowerCase());
+                        line = defArgs[2];
+                        if ((!invert && !contains) || (invert && contains)) {
                             if (defArgs[2].startsWith("U+")) {
                                 drawingFont = false;
                             }
-                            continue;
-                        } else {
-                            line = defArgs[2];
+                            defMet = false;
+                            break;
                         }
                     }
+                }
+                if (!defMet) {
+                    continue;
                 }
             }
 
@@ -200,16 +258,7 @@ public class FontBuilder {
                         }
                         Entry entry = new Entry(fontWidth, height, upscaled, fontData);
                         for (String fontKey : fontKeys) {
-                            if (fontKey.equals("IGNORE")) {
-                                continue;
-                            }
-                            Entry oldEntry = fontDataMapString.get(fontKey);
-                            if (oldEntry == null || !(!oldEntry.upscaled && entry.upscaled)) {
-                                fontDataMapString.put(fontKey, entry);
-                                if (fontKey.matches("[0-9a-fA-F]+") || customGlyphPointers.containsKey(fontKey)) {
-                                    fontDataMap.put(key(fontKey), entry);
-                                }
-                            }
+                            putString(fontKey, entry);
                         }
 
                         drawingFont = false;
@@ -306,9 +355,19 @@ public class FontBuilder {
                     String includeFilename = line.substring(2).split("\\s+")[1];
                     File includeFile = new File(includeFilename);
                     if (includeFile.exists()) {
-                        read(includeFile);
+                        FontBuilder builder = new FontBuilder(this);
+                        builder.read(includeFile);
+                        Map<Object, Entry> entryMap = builder.getFontDataMap();
+                        for (Object o : entryMap.keySet()) {
+                            putObject(o, entryMap.get(o));
+                        }
                     } else {
                         System.err.println(String.format("File %s does not exist!", includeFilename));
+                    }
+                } else if (line.startsWith("SETPOINTER")) {
+                    String[] args = line.split("\\s+");
+                    if (args.length >= 3) {
+                        pointerMap.put(args[1], new Pointer(Integer.parseInt(args[2], 16), args.length >= 4 && args[3].equalsIgnoreCase("INCREMENT")));
                     }
                 } else if (line.startsWith("SET")) {
                     // TODO

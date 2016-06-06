@@ -29,7 +29,11 @@ public class HEXWriter implements Writer {
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
 
         List<Integer> keyList = new ArrayList<>();
-        keyList.addAll(builder.getFontDataMap().keySet());
+        for (Object o : builder.getFontDataMap().keySet()) {
+            if (o instanceof Integer) {
+                keyList.add(((Integer) o).intValue());
+            }
+        }
         Collections.sort(keyList);
 
         for (int k : keyList) {

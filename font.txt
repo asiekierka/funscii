@@ -1,4 +1,7 @@
 SET fontsizes 8x8,8x16
+SETPOINTER XTND E100 INCREMENT
+SETPOINTER XTND2 E800 INCREMENT
+SETPOINTER XTND3 EC00 INCREMENT
 
 INCLUDE glyphs/punctuation.txt
 	.,:;… !?¡¿‼ -­–—_¯ "“”„‴ '‘`’‚ «» ‹› () [] {}
@@ -94,11 +97,11 @@ INCLUDE glyphs/patterns.txt
 INCLUDE glyphs/ctrl.txt
 	- Glyphs for ascii/dec control character ranges.
 
-INCLUDE glyphs/japanese/misaki-8-gothic.txt
-IFDEF jp-mincho INCLUDE glyphs/japanese/misaki-8-mincho.txt
+IFNDEF tiny INCLUDE glyphs/japanese/misaki-8-gothic.txt
+IFNDEF tiny IFDEF jp-mincho INCLUDE glyphs/japanese/misaki-8-mincho.txt
 	- Japanese hiragana, katakana and kanji (8x8)
 
-INCLUDE glyphs/japanese/shinonome-16.txt
+IFNDEF tiny INCLUDE glyphs/japanese/shinonome-16.txt
 	- Japanese hiragana, katakana and kanji (16x16)
 
 IFDEF dotted-braille INCLUDE glyphs/alt/dotted-braille.txt

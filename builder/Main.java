@@ -18,7 +18,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Main {
     private static final Map<String, Writer> WRITERS = new HashMap<>();
@@ -40,10 +42,14 @@ public class Main {
 
         try {
             int height = Integer.parseInt(args[1]);
+            Set<Integer> allowedWidths = new HashSet<>();
             if (height == 8) {
-                builder = new FontBuilder(new int[]{8}, 8);
+                allowedWidths.add(8);
+                builder = new FontBuilder(allowedWidths, 8);
             } else if (height == 16) {
-                builder = new FontBuilder(new int[]{8, 16}, 16);
+                allowedWidths.add(8);
+                allowedWidths.add(16);
+                builder = new FontBuilder(allowedWidths, 16);
             } else {
                 System.err.println("Invalid height specified - must be 8 or 16!");
                 return;
