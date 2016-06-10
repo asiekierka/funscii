@@ -9,10 +9,14 @@ a public domain bitmapped Unicode font for blocky graphics.
 * Bugfixes (incorrect mappings, etc.)
 * (Hopefully) improving the font's Unicode coverage
 * Minor personal taste changes (such as the 8x16 smiley faces)
+* Complete arrows implementation and wrong arrows fixed (Supplemental arrows-b)
+* make.sh rewrite to a saver and cleaner solution
 
 ### Compiling
 
-Look into how make.sh works.
+**Linux:** Run `sh make.sh` to compile the project and assembling the glyphs.
+
+**Windows:** Run `make.bat` to compile the project and assembling the glyphs.
 
 ### License
 

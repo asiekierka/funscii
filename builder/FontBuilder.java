@@ -87,7 +87,9 @@ public class FontBuilder {
     }
 
     public FontBuilder(Set<Integer> allowedWidths, int height) {
-        this(null, allowedWidths, height, new HashMap<>());
+        // HashMap<Object,Object> cannot be converted to Map<String,Pointer>
+        this(null, allowedWidths, height, new HashMap<String, Pointer>());
+        // this(null, allowedWidths, height, new HashMap<>());
     }
 
     public FontBuilder(FontBuilder parent) {
