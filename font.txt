@@ -74,7 +74,7 @@ INCLUDE glyphs/divisions.txt
 	  (has XTND)
 
 INCLUDE glyphs/lines.txt
-	- Unicode: Orthogonal and diagonal lines in different styles.
+	- Unicode: Orthogonal and diagonal lines in different styles.
 	- Non-unicode: Offset and cornered lines.
 	  (has XTND)
 
@@ -108,3 +108,9 @@ IFDEF dotted-braille INCLUDE glyphs/alt/dotted-braille.txt
 
 INCLUDE glyphs/similar.txt
 	- Characters from above sets deemed "similar enough".
+
+INCLUDE glyphs/letterlike.txt
+	- Letterlike symbols.
+
+INCLUDE glyphs/miscellaneous.txt
+	- misc symbols
