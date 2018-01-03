@@ -97,6 +97,10 @@ INCLUDE glyphs/patterns.txt
 INCLUDE glyphs/ctrl.txt
 	- Glyphs for ascii/dec control character ranges.
 
+INCLUDE glyphs/parallax.txt
+	- Parallax ROM Font special sauce
+IFDEF parallax_lines INCLUDE glyphs/alt/parallax_lines.txt
+	
 IFNDEF tiny INCLUDE glyphs/japanese/misaki-8-gothic.txt
 IFNDEF tiny IFDEF jp-mincho INCLUDE glyphs/japanese/misaki-8-mincho.txt
 	- Japanese hiragana, katakana and kanji (8x8)

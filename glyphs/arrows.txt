@@ -31,7 +31,7 @@ U+2191 OK!
 ...##... 
 ...##... 
 
-U+2913 OK!
+U+2193 OK!
 8x8
 ...##... 	PC extended. Full-height for consistency.
 ...##... 	Amstrad shape has a bigger head.

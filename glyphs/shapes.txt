@@ -193,6 +193,19 @@ U+25A2	WHITE SQUARE WITH ROUNDED CORNERS
 .#####.. 
 ........ 
 
+
+U+2023	TRIANGULAR BULLET
+8x8
+..####.. 	Technically supposed to be a triangle, but Parallax has a rounded rectangle here
+.######. 
+.######. 
+.######. 
+.######. 
+.######. 
+..####.. 
+........ 
+
+
 8x16 SHIFT 4
 
 U+25A3	WHITE SQUARE CONTAINING BLACK SMALL SQUARE
