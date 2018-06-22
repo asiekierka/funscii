@@ -18,6 +18,10 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.io.FileReader;
+import java.io.LineNumberReader;
 
 public class ImageWriter implements Writer {
     private final String format;
@@ -29,6 +33,7 @@ public class ImageWriter implements Writer {
     public void save(FontBuilder builder, File file, String[] args) throws IOException {
         int caw = -1;
         int cah = -1;
+		Map<Integer,Integer> translationMap = new HashMap<Integer,Integer>();
         if (args.length >= 2) {
             try {
                 caw = Integer.parseInt(args[0]);
@@ -36,6 +41,36 @@ public class ImageWriter implements Writer {
             } catch (NumberFormatException e) {
                 System.err.println("Invalid width/height values!");
             }
+			if (args.length >= 3) {
+				LineNumberReader transMappingReader = new LineNumberReader(new FileReader(args[2]));
+				int nextchar = 0;
+				for(String line; (line = transMappingReader.readLine()) != null; ) {
+					if (line.length() == 0 || line.startsWith("//")) continue;
+					String[] parts = line.split(":");
+					switch (parts.length) {
+					default:
+						System.err.println("Syntax error in translation mapping file, line "+transMappingReader.getLineNumber());
+						return;
+					case 2:
+						try {
+							nextchar = Integer.parseInt(parts[1], 16);
+						} catch (NumberFormatException e) {
+							System.err.println("Second number format error in translation mapping file, line "+transMappingReader.getLineNumber());
+							return;
+						}
+					// Drop through
+					case 1:
+						try {
+							int mapchar = Integer.parseInt(parts[0], 16);
+							translationMap.put(nextchar,mapchar);
+							nextchar++;
+						} catch (NumberFormatException e) {
+							System.err.println("First number format error in translation mapping file, line "+transMappingReader.getLineNumber());
+							return;
+						}
+					}
+				}
+			}	
         } else {
             caw = 256;
             int maxPos = 0;
@@ -51,9 +86,10 @@ public class ImageWriter implements Writer {
         }
         int cw = builder.getMaxWidth();
         int ch = builder.getHeight();
-        BufferedImage image = new BufferedImage(caw * cw, cah * ch, BufferedImage.TYPE_3BYTE_BGR);
+        BufferedImage image = new BufferedImage(caw * cw, cah * ch, BufferedImage.TYPE_BYTE_BINARY);
         for (int i = 0; i < caw * cah; i++) {
-            FontBuilder.Entry e = builder.getFontDataMap().get(i);
+			Integer remap = translationMap.get(i);
+            FontBuilder.Entry e = builder.getFontDataMap().get(remap==null?i:remap);
             if (e != null) {
                 int cx = (i % caw) * cw;
                 int cy = (i / caw) * ch;

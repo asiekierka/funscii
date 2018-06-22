@@ -1,9 +1,8 @@
-#!/bin/sh
 cd builder
 javac *.java
 cd ..
-rm *.hex
-rm *.bmp
+del *.hex
+del *.bmp
 java -cp builder/ Main font.txt 8 hex funscii-8.hex
 java -cp builder/ Main font.txt:alt 8 hex funscii-8-alt.hex
 java -cp builder/ Main font.txt:fantasy 8 hex funscii-8-fantasy.hex

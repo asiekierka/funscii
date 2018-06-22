@@ -27,12 +27,13 @@ public class Main {
 
     static {
         WRITERS.put("bmp", new ImageWriter("BMP"));
+		WRITERS.put("png", new ImageWriter("PNG"));
         WRITERS.put("hex", new HEXWriter());
     }
 
     public static void main(String[] args) {
         if (args.length < 4) {
-            System.out.println("Usage: Main <buildfile>[:arg1,[arg2,[...]]] <height (8 or 16)> <output format> <output file> [additional arguments]");
+            System.out.println("Usage: Main <buildfile>[:arg1,[arg2,[...]]] <height (8 or 16 or 16x8)> <output format> <output file> [additional arguments]");
             System.out.println("Available writers: " + Arrays.toString(WRITERS.keySet().toArray(new String[WRITERS.size()])));
             return;
         }
@@ -41,17 +42,20 @@ public class Main {
         FontBuilder builder;
 
         try {
-            int height = Integer.parseInt(args[1]);
+            String size = args[1];
             Set<Integer> allowedWidths = new HashSet<>();
-            if (height == 8) {
+            if (size.equals("8") || size.equals("8x8")) {
                 allowedWidths.add(8);
                 builder = new FontBuilder(allowedWidths, 8);
-            } else if (height == 16) {
+            } else if (size.equals("16")) {
                 allowedWidths.add(8);
                 allowedWidths.add(16);
                 builder = new FontBuilder(allowedWidths, 16);
+			} else if (size.equals("8x16")) {
+                allowedWidths.add(8);
+                builder = new FontBuilder(allowedWidths, 16);
             } else {
-                System.err.println("Invalid height specified - must be 8 or 16!");
+                System.err.println("Invalid size specified - must be 8 or 16 or 8x16!");
                 return;
             }
         } catch (NumberFormatException e) {
