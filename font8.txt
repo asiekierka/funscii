@@ -3,108 +3,108 @@ SETPOINTER XTND E100 INCREMENT
 SETPOINTER XTND2 E800 INCREMENT
 SETPOINTER XTND3 EC00 INCREMENT
 
-INCLUDE glyphs/punctuation.txt
+INCLUDE glyphs8/punctuation.txt
 	.,:;… !?¡¿‼ -­–—_¯ "“”„‴ '‘`’‚ «» ‹› () [] {}
 
-INCLUDE glyphs/numbers.txt
+INCLUDE glyphs8/numbers.txt
 	0123456789 ° ⁰¹²³⁴⁵⁶⁷⁸⁹ⁿ %‰‱ ¼½¾
 
-INCLUDE glyphs/math.txt
+INCLUDE glyphs8/math.txt
 	+±÷ *×· /\⁄ ¬ <>≤≥=≠≡≈ √ ∟⌐¬ ƒ∂ ∞ ∩ ∫⌠⌡
 
-INCLUDE glyphs/textsymbols.txt
+INCLUDE glyphs8/textsymbols.txt
 	&@#§¶ $¢£¤¥€₧ |‖¦ ©®℗§™℠ †‡ ªº
 
-INCLUDE glyphs/latin.txt
+INCLUDE glyphs8/latin.txt
 	ABCDEFGHIJKLMNOPQRSTUVWXYZ etc
 	abcdefghijklmnopqrstuvwxyz etc
 	- Also shrunken variants of letters for diacritic use.
 
-INCLUDE glyphs/greek.txt
+INCLUDE glyphs8/greek.txt
 	- Greek letters.
 
-INCLUDE glyphs/cyrillic.txt
+INCLUDE glyphs8/cyrillic.txt
 	- Cyrillic letters.
 	- Letters that look identical to Latin or Greek ones are duplicated
 	  from there.
 
-INCLUDE glyphs/hebrew.txt
+INCLUDE glyphs8/hebrew.txt
 	- Atari ST has Hebrew characters.
 
-INCLUDE glyphs/arabic.txt
+INCLUDE glyphs8/arabic.txt
 	- Al-Alamiah MSX has 8x8 Arabic letters.
 	- 8x16 is based on other fonts.
 
-INCLUDE glyphs/katakana.txt
+INCLUDE glyphs8/katakana.txt
 	- Many MSX machines have Katakana even in the most rudimentary
 	  character sets.
 
-INCLUDE glyphs/runes.txt
+INCLUDE glyphs8/runes.txt
 	- Anglo-saxon runes as represented in classic games.
 	- Extended into elder and younger Futhark in the same style.
 
-INCLUDE glyphs/wideascii.txt
+INCLUDE glyphs8/wideascii.txt
 	- Double-width ASCII characters as in CJK character sets.
 	- Based on the simple x-doubling of normal ascii chars, some
 	  smoothing.
 
-INCLUDE glyphs/diacritics.txt
+INCLUDE glyphs8/diacritics.txt
 	- Diacritical marks.
 
-IFDEF alt INCLUDE glyphs/alt/deviant.txt
-IFDEF fantasy INCLUDE glyphs/alt/fantasy.txt
-IFDEF mcr INCLUDE glyphs/alt/mcr.txt
-IFDEF thin INCLUDE glyphs/alt/thin.txt
+IFDEF alt INCLUDE glyphs8/alt/deviant.txt
+IFDEF fantasy INCLUDE glyphs8/alt/fantasy.txt
+IFDEF mcr INCLUDE glyphs8/alt/mcr.txt
+IFDEF thin INCLUDE glyphs8/alt/thin.txt
 
-INCLUDE glyphs/diacrcomb.txt
+INCLUDE glyphs8/diacrcomb.txt
 	- Latin, Cyrillic and Greek letters that straightforwardly combine
 	  diacritical marks with base characters.
 
-INCLUDE glyphs/symbols.txt
+INCLUDE glyphs8/symbols.txt
 	- Card suits, gender symbols, logos and other non-textual symbols.
 	  (no XTND here)
 
-INCLUDE glyphs/arrows.txt
+INCLUDE glyphs8/arrows.txt
 	- Arrows and arrowheads.
 	  (no XTND here)
 
-INCLUDE glyphs/divisions.txt
+INCLUDE glyphs8/divisions.txt
 	- Cells divided in orthogonal, diagnonal and sloped ways.
 	  Some of them also in shades.
 	  (has XTND)
 
-INCLUDE glyphs/lines.txt
+INCLUDE glyphs8/lines.txt
 	- Unicode: Orthogonal and diagonal lines in different styles.
 	- Non-unicode: Offset and cornered lines.
 	  (has XTND)
 
-INCLUDE glyphs/shapes.txt
+INCLUDE glyphs8/shapes.txt
 	- Rectangles, circles, diamonds, triangles, stars etc.
 	  (has XTND)
 
-INCLUDE glyphs/pictures.txt
+INCLUDE glyphs8/pictures.txt
 	- Pictures which are part of Unicode.
 
-INCLUDE glyphs/grids.txt
+INCLUDE glyphs8/grids.txt
 	- Unicode: 2x2 grid mosaics and 2x4 Braille symbols.
 	- Teletext: 2x3 grid mosaics with combined and separated pixels.
-	- TODO INCLUDE glyphs/2x4 solid
+	- TODO INCLUDE glyphs8/2x4 solid
 
-INCLUDE glyphs/patterns.txt
+INCLUDE glyphs8/patterns.txt
 	- Regular shades, orthogonal and diagonal line fills and other
 	  patterns. Unicode and non-unicode.
 
-INCLUDE glyphs/ctrl.txt
+INCLUDE glyphs8/ctrl.txt
 	- Glyphs for ascii/dec control character ranges.
 
-IFNDEF tiny INCLUDE glyphs/japanese/misaki-8-gothic.txt
-IFNDEF tiny IFDEF jp-mincho INCLUDE glyphs/japanese/misaki-8-mincho.txt
+IFNDEF tiny INCLUDE glyphs8/japanese/misaki-8-gothic.txt
+IFNDEF tiny IFDEF jp-mincho INCLUDE glyphs8/japanese/misaki-8-mincho.txt
 	- Japanese hiragana, katakana and kanji (8x8)
 
-IFNDEF tiny INCLUDE glyphs/japanese/shinonome-16.txt
+IFNDEF tiny INCLUDE glyphs8/japanese/shinonome-16.txt
 	- Japanese hiragana, katakana and kanji (16x16)
 
-IFDEF dotted-braille INCLUDE glyphs/alt/dotted-braille.txt
+IFDEF dotted-braille INCLUDE glyphs8/alt/dotted-braille.txt
 
-INCLUDE glyphs/similar.txt
+INCLUDE glyphs8/similar.txt
 	- Characters from above sets deemed "similar enough".

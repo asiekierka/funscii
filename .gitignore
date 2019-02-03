@@ -1,0 +1,16 @@
+# Ignore everything
+/builder/*
+
+# Folders
+!/builder/gradle
+!/builder/src
+
+# Files
+!/builder/.gitattributes
+!/builder/.gitignore
+!/builder/.editorconfig
+!/builder/build.gradle
+!/builder/gradle.properties
+!/builder/gradlew
+!/builder/gradlew.bat
+!/builder/settings.gradle

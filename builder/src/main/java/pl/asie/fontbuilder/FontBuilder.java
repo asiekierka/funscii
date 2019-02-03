@@ -1,4 +1,4 @@
-/*
+package pl.asie.fontbuilder;/*
  * Copyright (c) 2016 Adrian Siekierka
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

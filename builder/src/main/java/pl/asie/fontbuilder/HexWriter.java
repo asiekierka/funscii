@@ -1,4 +1,4 @@
-/*
+package pl.asie.fontbuilder;/*
  * Copyright (c) 2016 Adrian Siekierka
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class HEXWriter implements Writer {
+public class HexWriter implements Writer {
     @Override
     public void save(FontBuilder builder, File file, String[] args) throws IOException {
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
@@ -31,18 +31,18 @@ public class HEXWriter implements Writer {
         List<Integer> keyList = new ArrayList<>();
         for (Object o : builder.getFontDataMap().keySet()) {
             if (o instanceof Integer) {
-                keyList.add(((Integer) o).intValue());
+                keyList.add((Integer) o);
             }
         }
         Collections.sort(keyList);
 
         for (int k : keyList) {
             FontBuilder.Entry e = builder.getFontDataMap().get(k);
-            String s = Integer.toHexString(k);
+            StringBuilder s = new StringBuilder(Integer.toHexString(k));
             while (s.length() < 4) {
-                s = "0" + s;
+                s.insert(0, "0");
             }
-            s += ":";
+            s.append(":");
             byte[] ba = e.data.toByteArray();
             for (int i = 0; i < (e.width * e.height / 8); i++) {
                 int ip = i ^ (e.width == 16 ? 1 : 0);
@@ -50,18 +50,18 @@ public class HEXWriter implements Writer {
                 String s1 = Integer.toHexString(((int) b) & 0xFF);
                 switch (s1.length()) {
                     case 0:
-                        s += "00";
+                        s.append("00");
                         break;
                     case 1:
-                        s += "0" + s1;
+                        s.append("0").append(s1);
                         break;
                     case 2:
-                        s += s1;
+                        s.append(s1);
                         break;
                 }
             }
-            s += "\n";
-            writer.write(s.toUpperCase());
+            s.append("\n");
+            writer.write(s.toString().toUpperCase());
         }
 
         writer.close();
