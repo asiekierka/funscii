@@ -353,13 +353,37 @@ public class FontBuilder {
                         }
                     }
                 } else if (line.startsWith("INCLUDE")) {
-                    String includeFilename = line.substring(2).split("\\s+")[1];
+                    String[] args = line.substring(2).split("\\s+");
+                    String includeFilename = args[1];
                     File includeFile = new File(includeFilename);
                     if (includeFile.exists()) {
                         FontBuilder builder = new FontBuilder(this);
                         builder.read(includeFile);
+
+                        int rangeMin = -1;
+                        int rangeMax = -1;
+                        boolean override = true;
+                        if (args.length >= 5 && "RANGE".equals(args[2])) {
+                            rangeMin = Integer.parseInt(args[3], 16);
+                            rangeMax = Integer.parseInt(args[4], 16);
+                            if (args.length >= 6 && "NOOVERRIDE".equals(args[5]))
+                                override = false;
+                        } else {
+                            if (args.length >= 3 && "NOOVERRIDE".equals(args[2]))
+                                override = false;
+                        }
+
                         Map<Object, Entry> entryMap = builder.getFontDataMap();
                         for (Object o : entryMap.keySet()) {
+                            if (rangeMin >= 0 && o instanceof Number) {
+                                int oVal = ((Number) o).intValue();
+                                if (oVal < rangeMin || oVal > rangeMax) {
+                                    continue;
+                                }
+                            }
+                            if (!override && getFontDataMap().containsKey(o)) {
+                                continue;
+                            }
                             putObject(o, entryMap.get(o));
                         }
                     } else {

@@ -49,7 +49,7 @@ public class Main {
             g2d[biOffset].drawString(s, xOffset, yOffset + g2d[biOffset].getFontMetrics().getMaxAscent());
         }
 
-        if (args[4] != null) {
+        if (args.length >= 5 && args[4] != null) {
             for (int i = 0; i < bi.length; i++) {
                 ImageIO.write(bi[i], "png", new File(args[4] + "_" + i + " .png"));
             }

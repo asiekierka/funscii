@@ -97,11 +97,12 @@ INCLUDE fonts/unscii/pictures.txt
 INCLUDE fonts/unscii/ctrl.txt
 	- Glyphs for ascii/dec control character ranges.
 
-IFNDEF tiny INCLUDE fonts/misaki/gothic.txt
-IFNDEF tiny IFDEF jp-mincho INCLUDE fonts/misaki/mincho.txt
+IFNDEF tiny INCLUDE fonts/misaki/gothic.txt RANGE 3000 9FFF
+IFNDEF tiny IFDEF misaki-mincho INCLUDE fonts/misaki/mincho.txt RANGE 3000 9FFF
+IFNDEF tiny IFDEF misaki-gothic-2nd INCLUDE fonts/misaki/gothic_2nd.txt RANGE 3000 9FFF
 	- Japanese hiragana, katakana and kanji (8x8)
 
-IFNDEF tiny INCLUDE fonts/shinonome/font.txt
+IFNDEF tiny INCLUDE fonts/shinonome/font.txt RANGE 3000 9FFF
 	- Japanese hiragana, katakana and kanji (16x16)
 
 IFDEF dotted-braille INCLUDE fonts/funscii8/dotted-braille.txt
