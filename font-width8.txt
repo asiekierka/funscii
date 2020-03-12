@@ -106,6 +106,7 @@ IFNDEF tiny INCLUDE fonts/shinonome/font.txt
 
 IFDEF dotted-braille INCLUDE fonts/funscii8/dotted-braille.txt
 
+INCLUDE fonts/funscii8/extra-arrows.txt
 INCLUDE fonts/funscii8/extra-math.txt
 INCLUDE fonts/funscii8/extra-symbols.txt
 INCLUDE fonts/funscii8/extra-textsymbols.txt

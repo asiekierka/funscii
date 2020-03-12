@@ -1,3 +1,4 @@
 U+220E = 25A0	end of proof can be rendered as a 6x6 square
 U+2211 = 03A3	capital sigma for n-ary summation
 U+2219 = 2022	bullet operator
+U+2913 = 2B73   funscii compat (the two chars are similar)
