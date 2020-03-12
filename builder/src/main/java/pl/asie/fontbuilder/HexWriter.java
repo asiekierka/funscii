@@ -1,4 +1,4 @@
-package pl.asie.fontbuilder;/*
+/*
  * Copyright (c) 2016 Adrian Siekierka
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@ package pl.asie.fontbuilder;/*
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package pl.asie.fontbuilder;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,6 +27,17 @@ import java.util.List;
 public class HexWriter implements Writer {
     @Override
     public void save(FontBuilder builder, File file, String[] args) throws IOException {
+        int caMin = -1;
+        int caMax = -1;
+        if (args.length >= 2) {
+            try {
+                caMin = Integer.parseInt(args[0]);
+                caMax = Integer.parseInt(args[1]);
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid min/max values!");
+            }
+        }
+
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
 
         List<Integer> keyList = new ArrayList<>();
@@ -37,6 +49,10 @@ public class HexWriter implements Writer {
         Collections.sort(keyList);
 
         for (int k : keyList) {
+            if (caMin >= 0 && caMax >= 0 && (k < caMin || k > caMax)) {
+                continue;
+            }
+
             FontBuilder.Entry e = builder.getFontDataMap().get(k);
             StringBuilder s = new StringBuilder(Integer.toHexString(k));
             while (s.length() < 4) {

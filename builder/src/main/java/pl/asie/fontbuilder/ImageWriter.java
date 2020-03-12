@@ -1,4 +1,4 @@
-package pl.asie.fontbuilder;/*
+/*
  * Copyright (c) 2016 Adrian Siekierka
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@ package pl.asie.fontbuilder;/*
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package pl.asie.fontbuilder;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

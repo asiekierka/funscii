@@ -7,7 +7,9 @@ import java.awt.font.GlyphVector;
 import java.awt.font.LineMetrics;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -21,28 +23,36 @@ public class Main {
 
         Font font = Font.createFont(Font.TRUETYPE_FONT, new File(args[0]));
         font = font.deriveFont(Font.PLAIN,/* Integer.parseInt(args[1])*/ 8);
-        BufferedImage bi = new BufferedImage(256 * w, 256 * h, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D graphics2D = bi.createGraphics();
-        graphics2D.setFont(font);
+        BufferedImage[] bi = new BufferedImage[18];
+        Graphics2D[] g2d = new Graphics2D[bi.length];
+
+        for (int i = 0; i < bi.length; i++) {
+            bi[i] = new BufferedImage(256 * w, 256 * h, BufferedImage.TYPE_INT_ARGB);
+            g2d[i] = bi[i].createGraphics();
+            g2d[i].setFont(font);
+        }
 
         System.out.println(
-                graphics2D.getFontMetrics().charWidth('A') + " x " + graphics2D.getFontMetrics().getMaxAscent()
+            g2d[0].getFontMetrics().charWidth('A') + " x " + g2d[0].getFontMetrics().getMaxAscent()
         );
 
-        for (int i = 0; i < 0x10000; i++) {
+        for (int i = 0; i <= 0x10FFFF; i++) {
             if (!font.canDisplay(i)) {
                 continue;
             }
 
             int xOffset = (i & 0xFF) * w;
-            int yOffset = (i >> 8) * h;
+            int yOffset = ((i >> 8) & 0xFF) * h;
+            int biOffset = (i >> 16);
             String s = new StringBuilder().appendCodePoint(i).toString();
 
-            graphics2D.drawString(s, xOffset, yOffset + graphics2D.getFontMetrics().getMaxAscent());
+            g2d[biOffset].drawString(s, xOffset, yOffset + g2d[biOffset].getFontMetrics().getMaxAscent());
         }
 
         if (args[4] != null) {
-            ImageIO.write(bi, "png", new File(args[4]));
+            for (int i = 0; i < bi.length; i++) {
+                ImageIO.write(bi[i], "png", new File(args[4] + "_" + i + " .png"));
+            }
         }
 
         try (
@@ -52,10 +62,11 @@ public class Main {
         ) {
             String sizeString = w + "x" + h + "\n";
 
-            for (int i = 0; i < 0x10000; i++) {
+            for (int i = 0; i <= 0x10FFFF; i++) {
                 if (font.canDisplay(i)) {
                     int xOffset = (i & 0xFF) * w;
-                    int yOffset = (i >> 8) * h;
+                    int yOffset = ((i >> 8) & 0xFF) * h;
+                    int biOffset = (i >> 16);
 
                     StringBuilder header = new StringBuilder("U+");
                     String hexStr = Integer.toHexString(i).toUpperCase(Locale.ROOT);
@@ -71,7 +82,7 @@ public class Main {
                     for (int iy = 0; iy < h; iy++) {
                         StringBuilder line = new StringBuilder();
                         for (int ix = 0; ix < w; ix++) {
-                            int pixel = bi.getRGB(xOffset + ix, yOffset + iy);
+                            int pixel = bi[biOffset].getRGB(xOffset + ix, yOffset + iy);
                             line.append(pixel != 0 ? '#' : '.');
                         }
                         line.append("\n");

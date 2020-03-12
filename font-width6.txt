@@ -1,0 +1,15 @@
+SET fontsizes 6x8
+
+INCLUDE fonts/k6x8/k6x8.txt
+INCLUDE fonts/funscii6/k6x8_to_ascii.txt
+
+INCLUDE fonts/funscii6/diacritics.txt
+INCLUDE fonts/funscii6/diacrchars.txt
+INCLUDE fonts/unscii/diacrcomb.txt
+
+INCLUDE fonts/funscii6/lines.txt
+INCLUDE fonts/funscii6/grids.txt
+INCLUDE fonts/funscii6/divisions.txt
+INCLUDE fonts/funscii6/patterns.txt
+
+INCLUDE fonts/funscii6/ascii-smileys.txt
