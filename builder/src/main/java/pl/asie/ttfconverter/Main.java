@@ -38,10 +38,6 @@ public class Main {
             int yOffset = (i >> 8) * h;
             String s = new StringBuilder().appendCodePoint(i).toString();
 
-            /* LineMetrics metrics = font.getLineMetrics(s, new FontRenderContext(
-                    null, false, false
-            )); */
-
             graphics2D.drawString(s, xOffset, yOffset + graphics2D.getFontMetrics().getMaxAscent());
         }
 

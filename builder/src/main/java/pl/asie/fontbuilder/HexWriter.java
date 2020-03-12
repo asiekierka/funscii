@@ -43,22 +43,46 @@ public class HexWriter implements Writer {
                 s.insert(0, "0");
             }
             s.append(":");
-            byte[] ba = e.data.toByteArray();
-            for (int i = 0; i < (e.width * e.height / 8); i++) {
-                int ip = i ^ (e.width == 16 ? 1 : 0);
-                byte b = ip < ba.length ? ba[ip] : 0;
-                String s1 = Integer.toHexString(((int) b) & 0xFF);
-                switch (s1.length()) {
-                    case 0:
-                        s.append("00");
-                        break;
-                    case 1:
-                        s.append("0").append(s1);
-                        break;
-                    case 2:
-                        s.append(s1);
-                        break;
+            if ((e.width & 7) == 0) {
+                byte[] ba = e.data.toByteArray();
+                for (int i = 0; i < (e.width * e.height / 8); i++) {
+                    int ip = i ^ (e.width == 16 ? 1 : 0);
+                    byte b = ip < ba.length ? ba[ip] : 0;
+                    String s1 = Integer.toHexString(((int) b) & 0xFF);
+                    switch (s1.length()) {
+                        case 0:
+                            s.append("00");
+                            break;
+                        case 1:
+                            s.append("0").append(s1);
+                            break;
+                        case 2:
+                            s.append(s1);
+                            break;
+                    }
                 }
+            } else if (e.width < 8) {
+                for (int iy = 0; iy < e.height; iy++) {
+                    int x = 0;
+                    for (int ix = 0; ix < e.width; ix++) {
+                        x = (x << 1) | (e.data.get(iy * e.width + (e.width - 1 - ix)) ? 1 : 0);
+                    }
+                    String s1 = Integer.toHexString(x);
+                    switch (s1.length()) {
+                        case 0:
+                            s.append("00");
+                            break;
+                        case 1:
+                            s.append("0").append(s1);
+                            break;
+                        case 2:
+                            s.append(s1);
+                            break;
+                    }
+
+                }
+            } else {
+                throw new RuntimeException("Unsupported case!");
             }
             s.append("\n");
             writer.write(s.toString().toUpperCase());

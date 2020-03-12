@@ -44,7 +44,10 @@ public class Main {
         try {
             int height = Integer.parseInt(args[1]);
             Set<Integer> allowedWidths = new HashSet<>();
-            if (height == 8) {
+            if (height == 6) {
+                allowedWidths.add(6);
+                builder = new FontBuilder(allowedWidths, 8);
+            } else if (height == 8) {
                 allowedWidths.add(8);
                 builder = new FontBuilder(allowedWidths, 8);
             } else if (height == 16) {
