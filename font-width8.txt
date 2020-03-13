@@ -114,8 +114,5 @@ INCLUDE fonts/funscii8/extra-symbols.txt
 INCLUDE fonts/funscii8/extra-textsymbols.txt
 	- Extra characters from Funscii not included in Unscii.
 
-INCLUDE fonts/funscii8/ascii-smileys.txt
-	- Original PC-style smileys (personal preference).
-
 INCLUDE fonts/funscii8/unscii-copies.txt
 	- Filling in missing characters with existing characters!
