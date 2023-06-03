@@ -4,8 +4,8 @@ SETPOINTER XTND2 E800 INCREMENT
 SETPOINTER XTND3 EC00 INCREMENT
 
 	- Add at the end, so they don't get overridden by everything else.
-IFDEF unifont INCLUDE fonts/unifont/unifont-14.0.04.hex
-IFDEF unifont INCLUDE fonts/unifont/unifont_upper-14.0.04.hex
+IFDEF unifont INCLUDE fonts/unifont/unifont-15.0.04.hex
+IFDEF unifont INCLUDE fonts/unifont/unifont_upper-15.0.04.hex
 
 INCLUDE fonts/unscii/punctuation.txt
 	.,:;… !?¡¿‼ -­–—_¯ "“”„‴ '‘`’‚ «» ‹› () [] {}
