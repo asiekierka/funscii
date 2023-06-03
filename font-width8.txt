@@ -3,6 +3,10 @@ SETPOINTER XTND E100 INCREMENT
 SETPOINTER XTND2 E800 INCREMENT
 SETPOINTER XTND3 EC00 INCREMENT
 
+	- Add at the end, so they don't get overridden by everything else.
+IFDEF unifont INCLUDE fonts/unifont/unifont-14.0.04.hex
+IFDEF unifont INCLUDE fonts/unifont/unifont_upper-14.0.04.hex
+
 INCLUDE fonts/unscii/punctuation.txt
 	.,:;… !?¡¿‼ -­–—_¯ "“”„‴ '‘`’‚ «» ‹› () [] {}
 
@@ -97,9 +101,9 @@ INCLUDE fonts/unscii/pictures.txt
 INCLUDE fonts/unscii/ctrl.txt
 	- Glyphs for ascii/dec control character ranges.
 
-IFNDEF tiny INCLUDE fonts/misaki/gothic.txt RANGE 3000 9FFF
-IFNDEF tiny IFDEF misaki-mincho INCLUDE fonts/misaki/mincho.txt RANGE 3000 9FFF
-IFNDEF tiny IFDEF misaki-gothic-2nd INCLUDE fonts/misaki/gothic_2nd.txt RANGE 3000 9FFF
+IFNDEF unifont IFNDEF tiny INCLUDE fonts/misaki/gothic.txt RANGE 3000 9FFF
+IFNDEF unifont IFNDEF tiny IFDEF misaki-mincho INCLUDE fonts/misaki/mincho.txt RANGE 3000 9FFF
+IFNDEF unifont IFNDEF tiny IFDEF misaki-gothic-2nd INCLUDE fonts/misaki/gothic_2nd.txt RANGE 3000 9FFF
 	- Japanese hiragana, katakana and kanji (8x8)
 
 IFNDEF tiny INCLUDE fonts/shinonome/font.txt RANGE 3000 9FFF
