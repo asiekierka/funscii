@@ -35,6 +35,7 @@ public class FontBuilder {
         public final BitSet data;
         public final int width, height;
         public final boolean upscaled;
+        public boolean fromHex;
 
         public Entry(int width, int height, boolean upscaled, BitSet data) {
             this.data = data;
@@ -145,8 +146,21 @@ public class FontBuilder {
     private void putObject(Object key, Entry entry) {
         if (!key.equals("IGNORE")) {
             Entry oldEntry = fontDataMap.get(key);
-            if (oldEntry == null || !(!oldEntry.upscaled && entry.upscaled)) {
+            boolean toUpscaled = oldEntry != null && !oldEntry.upscaled && entry.upscaled;
+            if (key instanceof Number) {
+                int k = ((Number) key).intValue();
+                if (k >= 0x2800 && k <= 0x28FF) {
+                    toUpscaled = false;
+                }
+            }
+            /* if (oldEntry != null && oldEntry.fromHex && !entry.fromHex) {
+                toUpscaled = false;
+            } */
+
+            if (!toUpscaled) {
                 fontDataMap.put(key, entry);
+            } else {
+                System.err.println("WARNING: Not overwriting non-upscaled entry " + key + (oldEntry.fromHex ? " from hex" : "") + " with upscaled entry" + (entry.fromHex ? " from hex!" : "!"));
             }
         }
     }
@@ -177,6 +191,15 @@ public class FontBuilder {
                 String[] lineParts = line.split(":", 2);
                 if (lineParts.length >= 2) {
                     int fontIndex = Integer.parseInt(lineParts[0], 16);
+                    if (fontIndex >= 0xE000 && fontIndex <= 0xF8FF) {
+                        continue; // BMP PUA
+                    }
+                    if (fontIndex >= 0xF0000) {
+                        continue; // Supplementary PUA
+                    }
+                    if (fontIndex >= 0x2500 && fontIndex <= 0x259F) {
+                        continue; // Block elements
+                    }
                     int height = getHeight();
                     int width = lineParts[1].length() * 4 / height;
                     BitSet fontData = new BitSet(width * height);
@@ -192,6 +215,7 @@ public class FontBuilder {
                         error("" + fontIndex, String.format("Invalid font width: %d", width));
                     } else {
                         Entry entry = new Entry(width, height, false, fontData);
+                        entry.fromHex = true;
                         putObject(fontIndex, entry);
                     }
                 }
