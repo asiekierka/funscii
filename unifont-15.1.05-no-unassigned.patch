@@ -1,0 +1,70 @@
+diff -rup unifont-15.1.05/font/Makefile unifont-15.1.05.mod/font/Makefile
+--- unifont-15.1.05/font/Makefile	2024-02-25 00:08:41.000000000 +0100
++++ unifont-15.1.05.mod/font/Makefile	2024-04-07 12:59:23.033427901 +0200
+@@ -72,7 +72,7 @@ HEXDIR = plane00
+ # uncomment the UNASSIGNED definition or override from the make command line.
+ #
+ UNASSIGNED = $(HEXDIR)/plane00-unassigned.hex
+-# UNASSIGNED =
++UNASSIGNED =
+ 
+ #
+ # Non-printing glyphs.  There are only about 100 of these, and many end
+@@ -134,31 +134,27 @@ PLANE_3_ZH_HEX = plane03/zh-plane03.hex
+ # Planes 1 through 14 (0x0E) are ordinary;
+ # Planes 15 (0x0F) and 16 (0x10) are Private Use Area
+ #
+-UPPER_FILES = plane0[1E]/*.hex
++UPPER_FILES = plane0[123E]/*.hex
+ 
+ #
+ # Definitions for building unifont_all-$(VERSION).hex
+ #
+ ALL_HEX_PLANE00 =     plane00/hangul-syllables.hex \
+ 	              plane00/plane00-nonprinting.hex \
+-	              plane00/plane00-unassigned.hex \
+ 	              plane00/spaces.hex \
+ 	              plane00/unifont-base.hex \
+ 	              plane00/wqy.hex
+ ALL_HEX_PLANE00CSUR = plane00csur/plane00csur-nonprinting.hex \
+ 	              plane00csur/plane00csur-spaces.hex \
+-	              plane00csur/plane00csur-unassigned.hex \
+ 	              plane00csur/plane00csur.hex
+ ALL_HEX_PLANE01 =     plane01/plane01-nonprinting.hex \
+ 	              plane01/plane01-noscript.hex \
+ 	              plane01/plane01-space.hex \
+-	              plane01/plane01-unassigned.hex \
+ 	              plane01/plane01.hex
+ ALL_HEX_PLANE02 =     plane02/zh-plane02.hex \
+ 	              plane02/izmg16-plane02.hex
+ ALL_HEX_PLANE03 =     plane03/zh-plane03.hex
+ ALL_HEX_PLANE0E =     plane0E/plane0E-nonprinting.hex \
+-	              plane0E/plane0E-unassigned.hex \
+ 	              plane0E/plane0E.hex
+ ALL_HEX_PLANE0FCSUR = plane0Fcsur/plane0Fcsur-nonprinting.hex \
+ 	              plane0Fcsur/plane0Fcsur.hex
+diff -rup unifont-15.1.05/font/plane00csur/Makefile unifont-15.1.05.mod/font/plane00csur/Makefile
+--- unifont-15.1.05/font/plane00csur/Makefile	2023-07-16 22:51:00.000000000 +0200
++++ unifont-15.1.05.mod/font/plane00csur/Makefile	2024-04-07 12:53:27.086759273 +0200
+@@ -6,7 +6,7 @@
+ # the main font build, which can read "plane00csur/*.hex" as an alternate.
+ #
+ plane00csur-all.hex: plane00csur.hex plane00csur-spaces.hex \
+-	             plane00csur-nonprinting.hex plane00csur-unassigned.hex
++	             plane00csur-nonprinting.hex
+ 	set -e && \
+ 	   grep "^[0-9A-Fa-f]" noscript-ranges.txt | \
+ 	   awk 'NF == 1 {print "../../bin/unihexgen " $$1 " " $$1;} \
+diff -rup unifont-15.1.05/font/plane01/Makefile unifont-15.1.05.mod/font/plane01/Makefile
+--- unifont-15.1.05/font/plane01/Makefile	2023-07-16 22:51:07.000000000 +0200
++++ unifont-15.1.05.mod/font/plane01/Makefile	2024-04-07 12:53:37.870092664 +0200
+@@ -5,8 +5,7 @@
+ # these are placed in directory "all/" so they are not included with
+ # the main font build, which reads "plane01/*.hex".
+ #
+-plane01-all.hex: plane01.hex plane01-space.hex plane01-nonprinting.hex \
+-	plane01-unassigned.hex plane01-noscript.hex
++plane01-all.hex: plane01.hex plane01-space.hex plane01-nonprinting.hex
+ 	sort -u *.hex > plane01-all.hex
+ 
+ plane01-unassigned.hex: unassigned-ranges.txt
