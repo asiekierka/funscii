@@ -12,7 +12,17 @@ a public domain bitmapped Unicode font for blocky graphics.
 
 ### Compiling
 
-Look into how make.sh works.
+To prepare Unifont:
+
+1. Download the source code tree from [Unifont Utilities](https://unifoundry.com/unifont/unifont-utilities.html)
+2. Patch the build system to disable all `unassigned` and `noscript` font files
+3. `make BUILDFONT=1`
+4. Copy unifont-...-src/font/compiled/*.hex to fonts/unifont
+5. Update font-width8.txt to point to the right .hex files.
+
+To build:
+
+    ./make.sh
 
 ### License
 
